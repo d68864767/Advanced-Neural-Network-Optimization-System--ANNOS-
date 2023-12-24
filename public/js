@@ -1,0 +1,39 @@
+```javascript
+// public/js/main.js
+
+// Function to start the optimization process
+function startOptimization(algorithm, neuralNetwork) {
+    fetch('/api/optimization/start', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ algorithm, neuralNetwork }),
+    })
+    .then(response => response.json())
+    .then(data => console.log(data))
+    .catch((error) => {
+        console.error('Error:', error);
+    });
+}
+
+// Function to create a new neural network
+function createNeuralNetwork(networkConfig) {
+    fetch('/api/neuralNetwork/create', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ networkConfig }),
+    })
+    .then(response => response.json())
+    .then(data => console.log(data))
+    .catch((error) => {
+        console.error('Error:', error);
+    });
+}
+
+// Example usage:
+// startOptimization('genetic', { /* neural network configuration */ });
+// createNeuralNetwork({ /* network configuration */ });
+```

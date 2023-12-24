@@ -1,0 +1,53 @@
+```javascript
+// src/api/validators/optimizationValidator.js
+
+// Import required modules
+const Joi = require('joi');
+
+// Define the schema for the optimization request
+const optimizationSchema = Joi.object({
+    algorithm: Joi.string().valid('genetic', 'reinforcement').required(),
+    neuralNetwork: Joi.object().required()
+});
+
+// Function to validate the optimization request
+const validateOptimizationRequest = (req, res, next) => {
+    const { error } = optimizationSchema.validate(req.body);
+    if (error) {
+        return res.status(400).json({
+            status: 'error',
+            message: error.details[0].message
+        });
+    }
+    next();
+};
+
+module.exports = validateOptimizationRequest;
+```
+
+```javascript
+// src/api/validators/nnValidator.js
+
+// Import required modules
+const Joi = require('joi');
+
+// Define the schema for the neural network creation request
+const nnSchema = Joi.object({
+    networkConfig: Joi.object().required()
+});
+
+// Function to validate the neural network creation request
+const validateNNRequest = (req, res, next) => {
+    const { error } = nnSchema.validate(req.body);
+    if (error) {
+        return res.status(400).json({
+            status: 'error',
+            message: error.details[0].message
+        });
+    }
+    next();
+};
+
+module.exports = validateNNRequest;
+```
+

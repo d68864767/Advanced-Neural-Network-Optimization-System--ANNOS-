@@ -1,0 +1,37 @@
+{
+  "name": "annos",
+  "version": "1.0.0",
+  "description": "Advanced Neural Network Optimization System",
+  "main": "src/app.js",
+  "scripts": {
+    "start": "node src/app.js",
+    "setup": "node scripts/setup.js",
+    "deploy": "node scripts/deploy.js",
+    "test": "mocha --recursive test/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yourusername/annos.git"
+  },
+  "keywords": [
+    "neural-network",
+    "optimization",
+    "genetic-algorithm",
+    "reinforcement-learning",
+    "node.js"
+  ],
+  "author": "Your Name <your.email@example.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/yourusername/annos/issues"
+  },
+  "homepage": "https://github.com/yourusername/annos#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "dotenv": "^8.2.0"
+  },
+  "devDependencies": {
+    "mocha": "^8.2.1",
+    "chai": "^4.2.0"
+  }
+}

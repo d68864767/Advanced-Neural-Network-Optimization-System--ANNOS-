@@ -1,0 +1,33 @@
+```javascript
+// src/api/middleware/validateOptimizationRequest.js
+
+const logger = require('../../utils/logger');
+
+// Middleware for validating optimization request
+const validateOptimizationRequest = (req, res, next) => {
+    const { algorithm, neuralNetwork } = req.body;
+
+    // Check if the algorithm and neural network are provided
+    if (!algorithm || !neuralNetwork) {
+        logger.error('Algorithm and neural network must be provided');
+        return res.status(400).json({
+            status: 'error',
+            message: 'Algorithm and neural network must be provided'
+        });
+    }
+
+    // Check if the algorithm is valid
+    if (algorithm !== 'genetic' && algorithm !== 'reinforcement') {
+        logger.error('Invalid algorithm');
+        return res.status(400).json({
+            status: 'error',
+            message: 'Invalid algorithm'
+        });
+    }
+
+    // If everything is valid, proceed to the next middleware
+    next();
+};
+
+module.exports = validateOptimizationRequest;
+```

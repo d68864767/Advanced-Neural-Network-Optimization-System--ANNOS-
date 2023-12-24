@@ -1,0 +1,19 @@
+```javascript
+// src/api/routes/index.js
+
+// Import required modules
+const express = require('express');
+const router = express.Router();
+
+// Import controllers
+const optimizationController = require('../controllers/optimizationController');
+const nnController = require('../controllers/nnController');
+
+// Optimization routes
+router.use('/optimization', optimizationController);
+
+// Neural network routes
+router.use('/neuralnetwork', nnController);
+
+module.exports = router;
+```

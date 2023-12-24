@@ -1,0 +1,32 @@
+```html
+<!-- views/layouts/main.handlebars -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{title}}</title>
+    <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+    <div class="container">
+        {{{body}}}
+    </div>
+
+    <script src="/js/main.js"></script>
+    <script>
+        // Attach event listeners to buttons
+        document.getElementById('startOptimization').addEventListener('click', function() {
+            // Call the startOptimization function with example parameters
+            startOptimization('genetic', { /* neural network configuration */ });
+        });
+
+        document.getElementById('createNeuralNetwork').addEventListener('click', function() {
+            // Call the createNeuralNetwork function with example parameters
+            createNeuralNetwork({ /* network configuration */ });
+        });
+    </script>
+</body>
+</html>
+```

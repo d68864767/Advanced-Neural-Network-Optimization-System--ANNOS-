@@ -1,0 +1,32 @@
+```javascript
+// test/unitTests/index.js
+
+// Import testing libraries
+const chai = require('chai');
+const chaiHttp = require('chai-http');
+const expect = chai.expect;
+
+// Import app
+const app = require('../../src/app');
+
+// Use chaiHttp for making HTTP requests in tests
+chai.use(chaiHttp);
+
+// Import individual test files
+const optimizationControllerTests = require('./optimizationController.test');
+const nnControllerTests = require('./nnController.test');
+const geneticAlgorithmTests = require('./geneticAlgorithm.test');
+const reinforcementLearningTests = require('./reinforcementLearning.test');
+const nnBuilderTests = require('./nnBuilder.test');
+const nnEvaluatorTests = require('./nnEvaluator.test');
+
+describe('Unit Tests:', () => {
+    // Run all individual test files
+    optimizationControllerTests(chai, app, expect);
+    nnControllerTests(chai, app, expect);
+    geneticAlgorithmTests(chai, app, expect);
+    reinforcementLearningTests(chai, app, expect);
+    nnBuilderTests(chai, app, expect);
+    nnEvaluatorTests(chai, app, expect);
+});
+```
